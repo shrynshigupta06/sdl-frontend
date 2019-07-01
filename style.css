@@ -44,11 +44,20 @@ img{
     padding-left: 30px;
     padding-right: 30px
 }
+.radio-optns{
+    width: 100%;
+}
+.options{
+    width: 50%;
+    float: left;
+    padding: 20px;
+    padding-bottom: 30px;
+}
 .button{
-    height: 60px;
+    height: 50px;
     border-radius: 20px;
 }
-.rgstr-optn{
+.rgstr-optn, .login-optn{
     padding-top: 10%;
     font-size: 20px;
 }
