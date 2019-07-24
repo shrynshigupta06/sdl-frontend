@@ -143,6 +143,10 @@
             font-size: 11px;
             font-family: Montserrat;
         }
+
+        [for^=input-file-max-fs] {
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -181,11 +185,11 @@
 
             <div style="background-color: #17A2B8;">
                 <br>
-                <h5 class="center" style="font-family:Montserrat; font-weight: 1000; color: white;">Go Freelancing!
+                <h5 class="center" style="font-family:Montserrat; font-weight: 1000; color: white;">Hire Talent!
                 </h5>
                 <p class="center"
-                    style="font-family:Montserrat; margin-top:0px; font-weight: 600; margin-bottom: 28px;">Join our
-                    community now!
+                    style="font-family:Montserrat; margin-top:0px; font-weight: 600; margin-bottom: 28px;">Get 100%
+                    skilled freelancers only from your nearby location.
                 </p>
             </div>
 
@@ -213,10 +217,24 @@
                         </div>
                     </div>
 
-                    <!-- E-mail -->
+                    <!-- Organization Name -->
+                    <div class="input-field col s12" style="padding: 0px; margin-top: 0px;">
+                        <input id="oname" type="text" name="oname" required="" aria-required="true">
+                        <label for="oname" style="font-family: Montserrat; display:flex;">Organization Name<p
+                                style="line-height: 20px;">*</p></label>
+                    </div>
+
+                    <!-- Organization Name -->
+                    <div class="input-field col s12" style="padding: 0px; margin-top: 0px;">
+                        <input id="rnumb" type="text" name="rnumb" required="" aria-required="true">
+                        <label for="rnumb" style="font-family: Montserrat; display:flex;">Organization Registration No.
+                            <p style="line-height: 20px;">*</p></label>
+                    </div>
+
+                    <!-- Organization E-mail -->
                     <div class="input-field col s12" style="padding:0px; margin:0px;">
                         <input id="cemail" type="email" name="cemail" required="" aria-required="true">
-                        <label for="cemail" style="font-family: Montserrat; display:flex;">Email<p
+                        <label for="cemail" style="font-family: Montserrat; display:flex;">Organization Email<p
                                 style="line-height: 20px;">*</p></label>
                     </div>
 
@@ -233,6 +251,14 @@
                         <label for="cpassword" style="font-family: Montserrat; display:flex;">Confirm Password<p
                                 style="line-height: 20px;">*</p></label>
                     </div>
+
+                    <!-- Organization Proof -->
+                    <p
+                        style="color: teal; font-family: Montserrat;color: teal;
+                    font-family: Montserrat; align-content: left; text-align: left; font-size: 16px; margin-bottom: 8px; display: flex;">
+                        Organization Proof*</p>
+                    <input type="file" id="input-file-max-fs" class="file-upload" name="image" id="image"
+                        data-max-file-size="2M" required="" style="align-content: left" aria-required="true" />
 
                     <!-- Sign up button -->
                     <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-4" id="register"
@@ -299,8 +325,8 @@
                                     <!-- E-mail -->
                                     <div class="input-field col s12" style="padding:0px; margin:0px;">
                                         <input id="cemail" type="email" name="cemail" required="" aria-required="true">
-                                        <label for="cemail" style="font-family: Montserrat; display:flex;">Email<p
-                                                style="line-height: 20px;">*</p></label>
+                                        <label for="email" style="font-family: Montserrat; display:flex;">Organization
+                                            Email<p style="line-height: 20px;">*</p></label>
                                     </div>
 
                                     <!-- Password -->
@@ -380,6 +406,14 @@
                     required: true,
                     minlength: 5
                 },
+                oname: {
+                    required: true,
+                    minlength: 5
+                },
+                rnumb: {
+                    required: true,
+                    minlength: 10
+                },
                 cemail: {
                     required: true,
                     email: true
@@ -393,12 +427,21 @@
                     minlength: 5,
                     equalTo: "#password"
                 },
+                image: {
+                    required: true
+                }
             },
             //For custom messages
             messages: {
                 fname: {
                     required: "Please Enter a Name.",
                     minlength: "Enter at least 5 characters."
+                },
+                oname: {
+                    required: "Please enter your Organization Name."
+                },
+                rnumb: {
+                    required: "Please enter your Organization Registration No."
                 },
                 cemail: {
                     required: "Please Enter a Email Id."
@@ -409,6 +452,9 @@
                 cpassword: {
                     required: "Please Enter a Password to confirm."
                 },
+                image: {
+                    required: "Please upload a file."
+                }
             },
             errorElement: 'div',
             errorPlacement: function (error, element) {
@@ -460,7 +506,7 @@
                 e.preventDefault();
                 parent.swal({
                     title: "Good job!",
-                    text: "You have been successfully registered.",
+                    text: "We will get back to you shortly after proper validation!",
                     icon: "success",
                     button: "OK",
                 });
